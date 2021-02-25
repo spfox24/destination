@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>DestiNation</title>
+</head>
+<body class="dn-body">
+    <header class="dn-header">
+        <nav class="dn-nav">
+            <div class="dn-logo-container">
+                <img src="../static/img/DestiNationPrimary.png" alt="Logo" class="dn-logo-nav">
+            </div>
+        </nav>
+    </header>
+    <main class="dn-main">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    <footer class="dn-footer">
+        <p>All Rights Reserved &copy; 2021 DestiNation</p>
+        <img src="../static/img/DestiNationSecondary.png" alt="Logo" class="dn-logo-footer">
+    </footer>
+</body>
+</html>

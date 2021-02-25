@@ -1,0 +1,72 @@
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.dn-body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.dn-header {
+    display: flex;
+    background: bisque;
+    height: 80px;
+}
+
+.dn-nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.dn-logo-container {
+    display: flex;
+    width: 80px;
+    justify-content: left;
+}
+
+.dn-logo-home {
+    height: 350px;
+    width: 350px;
+}
+
+.dn-logo-footer {
+    height: 120px;
+    width: 120px;
+}
+
+.dn-heading {
+    font-family: var(--primary-font);
+}
+
+.dn-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
+}
+
+p {
+    font-family: var(--primary-font);
+}
+
+.dn-title {
+    font-family: var(--primary-font);
+}
+
+.dn-footer {
+    padding-top: 0;
+    text-align: center;
+    background: bisque;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
