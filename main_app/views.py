@@ -1,10 +1,16 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
+from .models import Trip
+
+class TripCreate(CreateView):
+	model = Trip
+	fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
 
 def home(request):
     return render(request, 'home.html')
 
 def trips_index(request):
-    trips = Trip.objects.filter(user=request.user)
+    trips = Trip.objects.all()
     return render(request, 'trips/index.html', { 'trips': trips })
 
 def trips_detail(request, trip_id):
