@@ -3,6 +3,15 @@ from django.urls import reverse
 from datetime import date
 # Create your models here.
 
+class Friend(models.Model):
+	name = models.CharField(max_length=100)
+	relationship = models.CharField(max_length=100)
+	birthdate = models.DateField()  
+	
+	def __str__(self):
+		return self.name
+
+
 class Trip(models.Model):
 	destination = models.CharField(max_length=100)
 	depart = models.DateField('departure date')
@@ -22,13 +31,7 @@ class Itinerary(models.Model):
 	def __str__(self):
 		return self.activity
 
- class Friend(models.Model):
-	name = models.CharField(max_length=100)
-	relationship = models.CharField(max_length=100)
-	birthdate = models.DateField()  
-	
-	def __str__(self):
-		return self.name
+
 
 
 class Photo(models.Model):
