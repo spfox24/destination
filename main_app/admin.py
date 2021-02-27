@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Trip, Friend, Itinerary, Photo
 
-# Register your models here.
+admin.site.register(Trip)
+admin.site.register(Friend)
+admin.site.register(Itinerary)
+admin.site.register(Photo)

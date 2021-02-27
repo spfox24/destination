@@ -17,6 +17,22 @@
             <div class="dn-logo-container">
                 <img src="../static/img/DestiNationPrimary.png" alt="Logo" class="dn-logo-nav">
             </div>
+            {% if user.is_authenticated %}
+            {% endif %}
+            <ul class="dn-nav-links">
+                <li class="dn-nav-item">All Trips</li>
+                <li class="dn-nav-item">Add Trip</li>
+                <li class="dn-nav-item">Add Friend</li>
+                <li class="dn-nav-item">Log Out</li>
+            </ul>
+            {% comment %}
+            {% else %}
+            <ul class="dn-nav-links">
+                <li class="dn-nav-item">Sign Up</li>
+                <li class="dn-nav-item">Log In</li>
+            {% endif %}
+            </ul>
+            {% endcomment %}
         </nav>
     </header>
     <main class="dn-main">
