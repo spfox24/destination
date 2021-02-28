@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,32 +17,32 @@
     <header class="dn-header">
         <nav class="dn-nav">
             <a href="{% url 'home' %}" class="dn-logo-container">
-                <img src="../static/img/DestiNationPrimary.png" alt="Logo" class="dn-logo-nav">
+                <img src="{% static 'img/DestiNationPrimary.png' %}" alt="Logo" class="dn-logo-nav">
             </a>
             {% if user.is_authenticated %}
             {% endif %}
             <ul class="dn-nav-links">
                 <li class="dn-nav-item">
-                    <a href="{% url 'trips_index' %}" class="dn-nav-item-link">All Trips</a>
+                    <a href="{% url 'trips_index' %}" class="dn-nav-item-link" style="text-decoration: none">All Trips</a>
                 </li>
                 <li class="dn-nav-item">
-                    <a href="{% url 'trips_create' %}" class="dn-nav-item-link">Add Trip</a>
+                    <a href="{% url 'trips_create' %}" class="dn-nav-item-link" style="text-decoration: none">Add Trip</a>
                 </li>
                 <li class="dn-nav-item">
-                    <a href="#" class="dn-nav-item-link">Add Friend</a>
+                    <a href="#" class="dn-nav-item-link" style="text-decoration: none">Add Friend</a>
                 </li>
                 <li class="dn-nav-item">
-                    <a href="#" class="dn-nav-item-link">Log Out</a>
+                    <a href="#" class="dn-nav-item-link" style="text-decoration: none">Log Out</a>
                 </li>
             </ul>
             {% comment %}
             {% else %}
             <ul class="dn-nav-links">
                 <li class="dn-nav-item">
-                    <a href="" class="dn-nav-item-link">Sign Up</a>
+                    <a href="" class="dn-nav-item-link" style="text-decoration: none">Sign Up</a>
                 </li>
                 <li class="dn-nav-item">
-                    <a href="" class="dn-nav-item-link">Log In</a>
+                    <a href="" class="dn-nav-item-link" style="text-decoration: none">Log In</a>
                 </li>
             {% endif %}
             </ul>
@@ -56,7 +56,7 @@
     </main>
     <footer class="dn-footer">
         <p>All Rights Reserved &copy; 2021 DestiNation</p>
-        <img src="../static/img/DestiNationSecondary.png" alt="Logo" class="dn-logo-footer">
+        <img src="{% static 'img/DestiNationSecondary.png' %}" alt="Logo" class="dn-logo-footer">
     </footer>
 </body>
 </html>

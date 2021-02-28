@@ -2,17 +2,20 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
-    {% if object %}
-        <h1>Edit <span>{{ object.name }}</span></h1>
-        {% else %}
-        <h1>Plan Your Trip!</h1>
-    {% endif %}
-
-    <form method="POST" novalidate>
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn">Create</button>
-    </form>
+    <div class="trip-form-body">
+        {% if object %}
+            <h1>Edit <span>{{ object.name }}</span></h1>
+            {% else %}
+            <h1 class="trip-form-heading">Plan Your Trip!</h1>
+        {% endif %}
+    
+        <form method="POST" class="trip-form" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="btn-container">
+                <button type="submit" class="dn-btn">Create</button>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
