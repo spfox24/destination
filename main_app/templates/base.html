@@ -6,30 +6,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/style.css">
     <title>DestiNation</title>
 </head>
 <body class="dn-body">
     <header class="dn-header">
         <nav class="dn-nav">
-            <div class="dn-logo-container">
+            <a href="{% url 'home' %}" class="dn-logo-container">
                 <img src="../static/img/DestiNationPrimary.png" alt="Logo" class="dn-logo-nav">
-            </div>
+            </a>
             {% if user.is_authenticated %}
             {% endif %}
             <ul class="dn-nav-links">
-                <li class="dn-nav-item">All Trips</li>
-                <li class="dn-nav-item">Add Trip</li>
-                <li class="dn-nav-item">Add Friend</li>
-                <li class="dn-nav-item">Log Out</li>
+                <li class="dn-nav-item">
+                    <a href="{% url 'trips_index' %}" class="dn-nav-item-link">All Trips</a>
+                </li>
+                <li class="dn-nav-item">
+                    <a href="{% url 'trips_create' %}" class="dn-nav-item-link">Add Trip</a>
+                </li>
+                <li class="dn-nav-item">
+                    <a href="#" class="dn-nav-item-link">Add Friend</a>
+                </li>
+                <li class="dn-nav-item">
+                    <a href="#" class="dn-nav-item-link">Log Out</a>
+                </li>
             </ul>
             {% comment %}
             {% else %}
             <ul class="dn-nav-links">
-                <li class="dn-nav-item">Sign Up</li>
-                <li class="dn-nav-item">Log In</li>
+                <li class="dn-nav-item">
+                    <a href="" class="dn-nav-item-link">Sign Up</a>
+                </li>
+                <li class="dn-nav-item">
+                    <a href="" class="dn-nav-item-link">Log In</a>
+                </li>
             {% endif %}
             </ul>
             {% endcomment %}

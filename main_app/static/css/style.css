@@ -50,9 +50,23 @@
     font-family: var(--primary-font);
 }
 
+.dn-nav-item-link {
+    text-decoration: none;
+    color: #272525;
+}
+
+.dn-nav-item-link:hover {
+    color: #ffffff;
+    transition: 0.2s ease-out;
+}
+
 .dn-logo-home {
     height: 350px;
     width: 350px;
+}
+
+.trip-form {
+    
 }
 
 .dn-logo-footer {
