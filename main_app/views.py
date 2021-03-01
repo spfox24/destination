@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
-from .models import Trip
+from .models import Trip, Friend
 
 def home(request):
     return render(request, 'home.html')
@@ -17,4 +17,6 @@ class TripCreate(CreateView):
 	model = Trip
 	fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
 
-
+class FriendCreate(CreateView):
+  model = Friend
+  fields = '__all__'
