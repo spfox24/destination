@@ -1,5 +1,9 @@
 :root {
     --primary-font: 'Montserrat', sans-serif;
+    --blue: #172A3A;
+    --teal: #379392;
+    --red: #ED6A5A;
+    --tan: #FCECC9;
 }
 
 * {
@@ -71,6 +75,10 @@
     flex-direction: column;
 }
 
+#inputOrigin {
+    outline: none;
+}
+
 .trip-form-heading {
     font-family: var(--primary-font);
     font-size: 50px;
@@ -85,6 +93,70 @@
     padding: 40px 80px 40px 80px;
     margin-bottom: 40px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.flight-heading {
+    font-family: var(--primary-font);
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.flight-body {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "flight-form-container flight-results"
+    "flight-key flight-key";
+    font-family: var(--primary-font);
+    margin: 60px 0 40px 0;
+}
+
+.flight-form-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.flight-form {
+    font-family: var(--primary-font);
+}
+
+.flight-results {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    text-align: center;
+}
+
+th {
+   
+}
+
+.flight-table-container {
+    width: 300px;
+}
+
+.flight-key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--primary-font);
+}
+
+.flight-key-container {
+    width: 600px;
+}
+
+.iata {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 40px;
 }
 
 .btn-container {
