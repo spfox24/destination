@@ -27,7 +27,7 @@ class Trip(models.Model):
 
 	
 	def __str__(self):
-		return self.name
+		return self.destination
 
 class Itinerary(models.Model):
 	date = models.DateField('activity date')
@@ -35,7 +35,6 @@ class Itinerary(models.Model):
 	
 	def __str__(self):
 		return self.activity
-
 
 
 

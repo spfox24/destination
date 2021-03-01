@@ -1,0 +1,214 @@
+:root {
+    --primary-font: 'Montserrat', sans-serif;
+    --blue: #172A3A;
+    --teal: #379392;
+    --red: #ED6A5A;
+    --tan: #FCECC9;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.dn-body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.dn-header {
+    display: flex;
+    background: bisque;
+    height: 100px;
+}
+
+.dn-nav {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.dn-logo-container {
+    display: flex;
+    width: 100px;
+    justify-content: left;
+}
+
+.dn-nav-links {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 60px;
+    list-style: none;
+    text-align: center;
+    width: 90vw;
+    justify-content: end;
+}
+
+.dn-nav-item {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    font-size: 15px;
+    list-style-type: none;
+    font-family: var(--primary-font);
+}
+
+.dn-nav-item-link {
+    color: #272525;
+}
+
+.dn-nav-item-link:hover {
+    color: #ffffff;
+    transition: 0.2s ease-out;
+}
+
+.dn-logo-home {
+    height: 350px;
+    width: 350px;
+}
+
+.trip-form-body {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+#inputOrigin {
+    outline: none;
+}
+
+.trip-form-heading {
+    font-family: var(--primary-font);
+    font-size: 50px;
+    color: #272525;
+    border-bottom: 2px solid #272525;
+    margin: 40px;
+}
+
+.trip-form {
+    font-family: var(--primary-font);
+    border: 1px solid lightgrey;
+    padding: 40px 80px 40px 80px;
+    margin-bottom: 40px;
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.flight-heading {
+    font-family: var(--primary-font);
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.flight-body {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "flight-form-container flight-results"
+    "flight-key flight-key";
+    font-family: var(--primary-font);
+    margin: 60px 0 40px 0;
+}
+
+.flight-form-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.flight-form {
+    font-family: var(--primary-font);
+}
+
+.flight-results {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    text-align: center;
+}
+
+th {
+   
+}
+
+.flight-table-container {
+    width: 300px;
+}
+
+.flight-key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--primary-font);
+}
+
+.flight-key-container {
+    width: 600px;
+}
+
+.iata {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0 0 0;
+}
+
+.dn-btn {
+    border: none;
+    border-radius: 4px;
+    background-color: #272525;
+    height: 35px;
+    width: 100px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.dn-logo-footer {
+    height: 120px;
+    width: 120px;
+}
+
+.dn-heading {
+    font-family: var(--primary-font);
+}
+
+.dn-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 auto;
+    padding: 0 20px 0 20px;
+}
+
+p {
+    font-family: var(--primary-font);
+}
+
+.dn-title {
+    font-family: var(--primary-font);
+}
+
+.dn-footer {
+    padding-top: 0;
+    text-align: center;
+    background: bisque;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
