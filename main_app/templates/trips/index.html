@@ -2,4 +2,20 @@
 
 {% block content %}
 
+<h1>Trip List</h1>
+
+{% for trip in trips %}
+    <a href="{% url 'detail' trip.id %}">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ trip.destination }}</span>
+                <p>Leaving Date: {{ trip.depart }}</p>
+                <p>Budget: {{ trip.budget }}</p>
+                <p>Description: {{ trip.description }}</p>
+            </div>
+        </div>
+    </a>
+
+{% endfor %}
+
 {% endblock %}
