@@ -38,7 +38,9 @@
                 </li>
             </ul>
             {% else %}
-            <ul class="dn-nav-links">
+            <ul class="dn-nav-links" style="
+                    display: grid;
+                    grid-template-columns: repeat(2, auto);">
                 <li class="dn-nav-item">
                     <a href="{% url 'signup' %}" class="dn-nav-item-link" style="text-decoration: none">Sign Up</a>
                 </li>
