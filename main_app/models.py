@@ -2,7 +2,11 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
+from fontawesome_5.fields import IconField
 # Create your models here.
+
+class Category(models.Model):
+	icon = IconField()
 
 class Friend(models.Model):
 	name = models.CharField(max_length=100)
