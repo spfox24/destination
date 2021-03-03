@@ -34,7 +34,7 @@
                     <a href="{% url 'flight_search' %}" class="dn-nav-item-link" style="text-decoration: none">Flight Inspiration</a>
                 </li>
                 <li class="dn-nav-item">
-                    <a href="#" class="dn-nav-item-link-logout" style="text-decoration: none">Log Out</a>
+                    <a href="{% url 'logout' %}" class="dn-nav-item-link-logout" style="text-decoration: none">Log Out</a>
                 </li>
             </ul>
             {% else %}
@@ -43,7 +43,7 @@
                     <a href="{% url 'signup' %}" class="dn-nav-item-link" style="text-decoration: none">Sign Up</a>
                 </li>
                 <li class="dn-nav-item">
-                    <a href="#" class="dn-nav-item-link" style="text-decoration: none">Log In</a>
+                    <a href="{% url 'login' %}" class="dn-nav-item-link" style="text-decoration: none">Log In</a>
                 </li>
             {% endif %}
             </ul>

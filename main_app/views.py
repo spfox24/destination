@@ -3,7 +3,7 @@ import json
 from dotenv import find_dotenv, load_dotenv
 from amadeus import Client, ResponseError, Location
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from .models import Trip, Friend
 from django.contrib.auth import login
@@ -26,7 +26,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('trips_index')
+            return redirect('home')
         else:
             error_message = 'Invalid data for sign up.'
 
