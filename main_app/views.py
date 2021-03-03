@@ -5,12 +5,37 @@ from amadeus import Client, ResponseError, Location
 from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 from .models import Trip
 
 load_dotenv(find_dotenv())
 
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+
+
+
+def signup(request):
+    error_message = ''
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('trips_index')
+        else:
+            error_message = 'Invalid data for sign up.'
+
+    form = UserCreationForm()
+    context = { 'form': form, 'error_message': error_message }
+    return render(request, 'registration/signup.html', context)
+
+
+
+
 
 amadeus = Client(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, log_level='debug')
 
@@ -34,7 +59,8 @@ def home(request):
     return render(request, 'home.html')
 
 def trips_index(request):
-    trips = Trip.objects.all()
+    # trips = Trip.objects.all()
+    trips = Trip.objects.filter(user=request.user)
     return render(request, 'trips/index.html', { 'trips': trips })
 
 def trips_detail(request, trip_id):
@@ -44,5 +70,9 @@ def trips_detail(request, trip_id):
 class TripCreate(CreateView):
 	model = Trip
 	fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
+
+def form_valid(self, form):
+    form.instance.user = self.request
+    return super().form_valid(form)
 
 
