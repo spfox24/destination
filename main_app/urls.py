@@ -8,4 +8,6 @@ urlpatterns = [
     path('trips/create/', views.TripCreate.as_view(), name='trips_create'),
     path('friends/create/', views.FriendCreate.as_view(), name='friends_create'),
     path('flight_search/', views.flight_search, name='flight_search'),
+
+    path('accounts/signup/', views.signup, name='signup')
 ]
