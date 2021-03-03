@@ -152,6 +152,17 @@
     margin-bottom: 40px;
 }
 
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.signup-form-body {
+    font-family: var(--primary-font);
+}
+
 .trip-form-body {
     display: flex;
     justify-content: center;
