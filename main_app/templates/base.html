@@ -20,7 +20,6 @@
                 <img src="{% static 'img/DestiNationPrimary.png' %}" alt="Logo" class="dn-logo-nav">
             </a>
             {% if user.is_authenticated %}
-            {% endif %}
             <ul class="dn-nav-links">
                 <li class="dn-nav-item">
                     <a href="{% url 'trips_index' %}" class="dn-nav-item-link" style="text-decoration: none">All Trips</a>
@@ -35,21 +34,19 @@
                     <a href="{% url 'flight_search' %}" class="dn-nav-item-link" style="text-decoration: none">Flight Inspiration</a>
                 </li>
                 <li class="dn-nav-item">
-                    <a href="#" class="dn-nav-item-link" style="text-decoration: none">Log Out</a>
+                    <a href="#" class="dn-nav-item-link-logout" style="text-decoration: none">Log Out</a>
                 </li>
             </ul>
-            {% comment %}
             {% else %}
             <ul class="dn-nav-links">
                 <li class="dn-nav-item">
-                    <a href="" class="dn-nav-item-link" style="text-decoration: none">Sign Up</a>
+                    <a href="{% url 'signup' %}" class="dn-nav-item-link" style="text-decoration: none">Sign Up</a>
                 </li>
                 <li class="dn-nav-item">
                     <a href="{% url 'login' %}" class="dn-nav-item-link" style="text-decoration: none">Log In</a>
                 </li>
             {% endif %}
             </ul>
-            {% endcomment %}
         </nav>
     </header>
     <main class="dn-main">
@@ -58,8 +55,8 @@
         {% endblock %}
     </main>
     <footer class="dn-footer">
-        <p>All Rights Reserved &copy; 2021 DestiNation</p>
-        <img src="{% static 'img/DestiNationSecondary.png' %}" alt="Logo" class="dn-logo-footer">
+        <img src="{% static 'img/DestiNation2white.png' %}" alt="Logo" class="dn-logo-footer">
+        <p class="footer-text">All Rights Reserved &copy; 2021 DestiNation</p>
     </footer>
 </body>
 </html>

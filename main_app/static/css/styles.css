@@ -1,9 +1,9 @@
 :root {
     --primary-font: 'Montserrat', sans-serif;
-    --blue: #172A3A;
-    --teal: #379392;
-    --red: #ED6A5A;
-    --tan: #FCECC9;
+    --primary-color: #172A3A;
+    --secondary-color: #379392;
+    --dn-red: #ED6A5A;
+    --dn-tan: #FCECC9;
 }
 
 * {
@@ -19,20 +19,25 @@
 
 .dn-header {
     display: flex;
-    background: bisque;
+    background: #ffffff;
     height: 100px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .dn-nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
+    width: 100%;
 }
 
 .dn-logo-container {
     display: flex;
     width: 100px;
-    justify-content: left;
+    justify-self: start;
 }
 
 .dn-nav-links {
@@ -41,7 +46,7 @@
     grid-gap: 60px;
     list-style: none;
     text-align: center;
-    width: 90vw;
+    width: 70vw;
     justify-content: end;
 }
 
@@ -55,17 +60,107 @@
 }
 
 .dn-nav-item-link {
-    color: #272525;
+    color: var(--primary-color);
 }
 
 .dn-nav-item-link:hover {
-    color: #ffffff;
+    color: var(--secondary-color);
     transition: 0.2s ease-out;
+    font-weight: 600;
+}
+
+.dn-nav-item-link-logout {
+    color: var(--primary-color);
+}
+
+.dn-nav-item-link-logout:hover {
+    color: var(--dn-red);
+    transition: 0.2s ease-out;
+    font-weight: 600;
+}
+
+.logo-home-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .dn-logo-home {
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
+}
+
+.t-hheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--primary-font);
+    color: var(--primary-color);
+}
+
+.h-header {
+    font-size: 35px;
+    text-align: center;
+}
+
+.h-text {
+    font-size: 25px;
+    color: var(--secondary-color);
+    padding: 8px;
+}
+
+.home-b {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-direction: column;
+}
+
+.card {
+    margin: 40px 0;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-family: var(--primary-font);
+    font-weight: bolder;
+    font-size: 1.75em;
+}
+
+.card-text {
+    font-size: 0.95em;
+}
+
+.card-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.card-img-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sub-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.signup-form-body {
+    font-family: var(--primary-font);
 }
 
 .trip-form-body {
@@ -95,15 +190,39 @@
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
+.flight-inspiration {
+    margin-top: 40px;
+    font-family: var(--primary-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    color: var(--secondary-color);
+}
+
+.flight-insp-header {
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.flight-insp-text {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
 .flight-heading {
     font-family: var(--primary-font);
     font-size: 40px;
     margin-bottom: 20px;
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 0 0 8px 0;
 }
 
 .flight-body {
     display: grid;
-    grid-template-columns: 300px 300px;
+    grid-template-columns: 350px 350px;
     grid-template-rows: auto;
     grid-template-areas:
     "flight-form-container flight-results"
@@ -134,7 +253,8 @@ table {
 }
 
 th {
-   
+    background-color: var(--dn-red);
+    color: white;
 }
 
 .flight-table-container {
@@ -165,10 +285,21 @@ th {
     padding: 10px 0 0 0;
 }
 
+.btn-primary {
+    background-color: var(--secondary-color) !important;
+    border: none !important;
+    font-family: var(--primary-font);
+}
+
+.btn-primary:hover {
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.88;
+}
+
 .dn-btn {
     border: none;
     border-radius: 4px;
-    background-color: #272525;
+    background-color: var(--secondary-color);
     height: 35px;
     width: 100px;
     color: #ffffff;
@@ -177,9 +308,16 @@ th {
     outline: none;
 }
 
+.dn-btn:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    opacity: 0.88;
+}
+
 .dn-logo-footer {
-    height: 120px;
-    width: 120px;
+    height: 150px;
+    width: 150px;
 }
 
 .dn-heading {
@@ -192,10 +330,7 @@ th {
     align-items: center;
     flex: 1 0 auto;
     padding: 0 20px 0 20px;
-}
-
-p {
-    font-family: var(--primary-font);
+    flex-grow: 1;
 }
 
 .dn-title {
@@ -205,10 +340,16 @@ p {
 .dn-footer {
     padding-top: 0;
     text-align: center;
-    background: bisque;
+    background: var(--primary-color);
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.footer-text {
+    font-family: var(--primary-font);
+    color: #ffffff;
+    font-size: 12px;
 }
