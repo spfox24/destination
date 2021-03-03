@@ -5,13 +5,10 @@ from amadeus import Client, ResponseError, Location
 from django.contrib import messages
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
-<<<<<<< HEAD
 from .models import Trip, Friend
-=======
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Trip
->>>>>>> master
 
 load_dotenv(find_dotenv())
 
