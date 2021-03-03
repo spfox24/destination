@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>Log In</h1>
-
-<form action="{% url 'login' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="Login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+<div class="signup-form">
+    <h1 class="trip-form-heading">Log In</h1>
+    
+    <form action="{% url 'login' %}" class="signup-form-body" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn" value="Login">
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+</div>
 
 {% endblock %}
