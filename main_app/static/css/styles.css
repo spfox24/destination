@@ -79,6 +79,16 @@
     font-weight: 600;
 }
 
+.dn-nav-item-link-login {
+    color: var(--primary-color);
+}
+
+.dn-nav-item-link-login:hover {
+    color: var(--dn-red);
+    transition: 0.2s ease-out;
+    font-weight: 600;
+}
+
 .logo-home-container {
     display: flex;
     justify-content: center;
@@ -222,6 +232,11 @@
 .ctext-trip {
     color: var(--primary-color);
     font-family: var(--primary-font);
+}
+
+.trips-logo {
+    height: 200px;
+    width: auto;
 }
 
 .flight-inspiration {
