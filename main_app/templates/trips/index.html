@@ -3,20 +3,40 @@
 {% block content %}
 <div>
     <div class="trip-list-body">
+        {% if trip.count %}
         <h1 class="trip-list-heading">Trip List</h1>
-        
-        {% for trip in trips %}
-        <div class="card" style="width: 40vw">
-            <a href="{% url 'detail' trip.id %}" id="trip-list-links">
-                    <div class="card-body">
-                        <h5 class="card-title" id="ct-trip">{{ trip.destination }}</h5>
-                        <p class="ctext-trip"><strong>Leaving Date:</strong> {{ trip.depart }}</p>
-                        <p class="ctext-trip"><strong>Budget:</strong> ${{ trip.budget }}</p>
-                        <p class="ctext-trip"><strong>Description:</strong> {{ trip.description }}</p>
-                    </div>
-                </a>
+            {% for trip in trips %}
+            <div class="card" style="width: 40vw">
+                <a href="{% url 'detail' trip.id %}" id="trip-list-links">
+                        <div class="card-body">
+                            <h5 class="card-title" id="ct-trip">{{ trip.destination }}</h5>
+                            <p class="ctext-trip"><strong>Leaving Date:</strong> {{ trip.depart }}</p>
+                            <p class="ctext-trip"><strong>Budget:</strong> ${{ trip.budget }}</p>
+                            <p class="ctext-trip"><strong>Description:</strong> {{ trip.description }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="card" style="height: 500px">
+            <img src="../static/img/travel12.jpg" alt="Card image" class="card-img">
+            <div class="card-img-overlay" style="
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: row;
+            ">
+                <h5 class="card-title" 
+                style="color: #ffffff; 
+                    font-size: 40px; 
+                    background-color: rgba(237, 106, 90, 0.85);
+                    padding: 20px;
+                    border-radius: 10px;
+                    ">Where to Next?
+                    <img src="../../static/img/DestiNation4.png" alt="logo" class="trips-logo" />        
+            </h5>
             </div>
-        {% endfor %}
+        </div>
+        {% endif %}
     </div>
     <div class="sub-home">
         <h1 class="h-text">.&nbsp;&nbsp;.&nbsp;&nbsp;.</h1>
