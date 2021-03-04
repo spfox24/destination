@@ -157,6 +157,7 @@
     justify-content: center;
     align-items:center;
     flex-direction: column;
+    margin-bottom: 40px;
 }
 
 .signup-form-body {
@@ -168,6 +169,7 @@
     justify-content: center;
     align-items:center;
     flex-direction: column;
+    margin-bottom: 40px;
 }
 
 #inputOrigin {
@@ -177,17 +179,49 @@
 .trip-form-heading {
     font-family: var(--primary-font);
     font-size: 50px;
-    color: #272525;
-    border-bottom: 2px solid #272525;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
     margin: 40px;
 }
 
 .trip-form {
     font-family: var(--primary-font);
-    border: 1px solid lightgrey;
     padding: 40px 80px 40px 80px;
-    margin-bottom: 40px;
     box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.2);
+    color: var(--primary-color);
+}
+
+.trip-list-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px 0 40px 0;
+}
+
+.trip-list-heading {
+    font-family: var(--primary-font);
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+#ct-trip {
+    color: var(--secondary-color);
+}
+
+#ct-trip:hover {
+    color: var(--dn-red);
+    transition: 0.2s ease-out;
+}
+
+#trip-list-links {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.ctext-trip {
+    color: var(--primary-color);
+    font-family: var(--primary-font);
 }
 
 .flight-inspiration {
@@ -315,11 +349,6 @@ th {
     opacity: 0.88;
 }
 
-.dn-logo-footer {
-    height: 150px;
-    width: 150px;
-}
-
 .dn-heading {
     font-family: var(--primary-font);
 }
@@ -338,18 +367,104 @@ th {
 }
 
 .dn-footer {
-    padding-top: 0;
-    text-align: center;
+    padding: 4rem 0 2rem 0;
     background: var(--primary-color);
-    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--primary-font);
+}
+
+.footer-links {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-link-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-link-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px;
+    text-align: left;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.footer-link-items h2{
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.footer-link-items a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+}
+
+.footer-link-items a:hover {
+    color: #ffffff;
+    transition: 0.3s ease-out;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px var(--secondary-color);
+}
+
+.social-media {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.social-media-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
 }
 
-.footer-text {
+.social-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+}
+
+.social-icon-link {
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.social-icon-link:hover {
+    color: var(--secondary-color);
+    transition: 0.3s ease-out;
+}
+
+.social-logo {
+    justify-self: start;
+    margin-left: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.logo-footer {
+    height: 150px;
+    width: auto;
+}
+
+.website-rights {
     font-family: var(--primary-font);
     color: #ffffff;
     font-size: 12px;
+    margin: 16px 0 16px 0;
 }
