@@ -68,8 +68,12 @@ def trips_detail(request, trip_id):
     return render(request, 'trips/detail.html', { 'trip': trip })
 
 class TripCreate(CreateView):
-	model = Trip
-	fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
+    model = Trip
+    fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class FriendCreate(CreateView):
   model = Friend

@@ -24,14 +24,16 @@ class Trip(models.Model):
 	hotel = models.CharField(max_length=100)
 	budget = models.IntegerField()
 	description = models.TextField(max_length=250)
+
 	friends = models.ManyToManyField(Friend)
-	
 
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-	
 	def __str__(self):
 		return self.destination
+
+	def get_absolute_url(self):
+		return reverse('trips_index')
 
 class Itinerary(models.Model):
 	date = models.DateField('activity date')
