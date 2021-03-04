@@ -3,9 +3,9 @@
 {% block content %}
 <div>
     <div class="trip-list-body">
-        {% if trip.count %}
+        {% if trips.count %}
         <h1 class="trip-list-heading">Trip List</h1>
-            {% for trip in trips %}
+        {% for trip in trips %}
             <div class="card" style="width: 40vw">
                 <a href="{% url 'detail' trip.id %}" id="trip-list-links">
                         <div class="card-body">
