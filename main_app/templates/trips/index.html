@@ -13,6 +13,8 @@
                             <p class="ctext-trip"><strong>Leaving Date:</strong> {{ trip.depart }}</p>
                             <p class="ctext-trip"><strong>Budget:</strong> ${{ trip.budget }}</p>
                             <p class="ctext-trip"><strong>Description:</strong> {{ trip.description }}</p>
+                            <a class="btn btn-primary" href="{% url 'trips_update' trip.id %}" role="button">Edit</a>
+                            <a class="btn btn-secondary" href="{% url 'trips_delete' trip.id %}" role="button">Delete</a>
                         </div>
                     </a>
                 </div>

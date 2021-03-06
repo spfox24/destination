@@ -1,0 +1,12 @@
+{% extends '../base.html' %}
+
+{% block content %}
+    <h4>Are you sure you want to delete <span>{{ object.destination }}</span></h4>
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+        <input type="submit" value="Yes - Delete!" class="btn btn-primary">
+        <a class="btn btn-secondary" href="{% url 'detail' trip.id %}">Cancel</a>  
+    </form>
+{% endblock %}

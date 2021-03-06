@@ -6,7 +6,8 @@ from dotenv import find_dotenv, load_dotenv
 from amadeus import Client, ResponseError, Location
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Trip, Friend
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Trip, Photo
@@ -92,5 +93,21 @@ class TripCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+class TripDelete(DeleteView):
+    model = Trip
+    success_url = '/trips/'
+
+
+class TripUpdate(UpdateView):
+    model = Trip
+    fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
+
+
+class FriendCreate(CreateView):
+  model = Friend
+  fields = '__all__'
+def form_valid(self, form):
+    form.instance.user = self.request
+    return super().form_valid(form)
 
 
