@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h1>
+        {{ trip.destination }}
+    </h1>
+    {% for photo in trip.photo_set.all %}
+        <img src="{{photo.url}}" alt="Trip Photo" class="responsive-img card">
+    {% empty %}
+        <div class="card center-align">No Photos Uploaded</div>
+    {% endfor %}
+    <form action="{% url 'add_photo' trip.id %}" enctype="multipart/form-data" method="POST" class="card">
+        {% csrf_token %}
+        <input type="file" name="photo-file">
+        <br><br>
+        <input type="submit" class="dn-btn" value="Upload Photo" style="width: auto">
+    </form>
+</div>
+{% endblock %}

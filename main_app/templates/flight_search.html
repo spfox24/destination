@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div>
+    <div class="flight-inspiration">
+        <h1 class="flight-insp-header">Flight Inspiration</h1>
+        <p class="flight-insp-text">Search Top Flight Destinations Based Off Location</p>
+    </div>
+    <div class="flight-body">
+        <div class="flight-form-container">
+            <form action="" method="POST" id="form_id" class="flight-form">
+                {% csrf_token %}
+                <h2 class="flight-heading">Flight Search</h2>
+                <p>
+                    <input type="text" name="Origin" id="inputOrigin"
+                        placeholder="Departing Airport" required autofocus>
+                </p>
+                <input type="submit" value="Submit" name="Submit" class="dn-btn"/>
+            </form>
+        </div>
+        <div class="flight-results">
+            <h2 class="flight-heading">Flight Results</h2>
+            <div class="flight-table-container">
+                <table class="table table-striped table-bordered">
+                    {% if results %}
+                    <thead>
+                        <tr><th scope="col">Destination</th><th scope="col">Flight Score</th></tr>
+                    </thead>
+                    <tbody>
+                            {% for result in results %}
+                        <tr>
+                            <td scope="row">{{ result.destination }}</td>
+                            <td scope="row">{{ result.analytics.flights.score }}</td>
+                        </tr>
+                            {% endfor %}
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        <div class="flight-key">
+            <h2 class="flight-heading">Airport Key</h2>
+            <div class="flight-key-container">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr><th scope="col">IATA Code</th><th scope="col">Location</th><th scope="col">IATA Code</th><th scope="col">Location</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">ATL</td>
+                            <td scope="row">Atlanta, GA</td>
+                            <td scope="row">BOS</td>
+                            <td scope="row">Boston, MA</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">CHI</td>
+                            <td scope="row">Chicago, IL</td>
+                            <td scope="row">DFW</td>
+                            <td scope="row">Dallas, TX</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">DEN</td>
+                            <td scope="row">Denver, CO</td>
+                            <td scope="row">LAS</td>
+                            <td scope="row">Las Vegas, NV</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">LAX</td>
+                            <td scope="row">Los Angeles, CA</td>
+                            <td scope="row">NYC</td>
+                            <td scope="row">New York, NY</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">SEA</td>
+                            <td scope="row">Seattle, WA</td>
+                            <td scope="row">SFO</td>
+                            <td scope="row">San Francisco, CA</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">AMS</td>
+                            <td scope="row">Amsterdam, NLD</td>
+                            <td scope="row">BJS</td>
+                            <td scope="row">Beijing, CHN</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">FRA</td>
+                            <td scope="row">Frankfurt, DEU</td>
+                            <td scope="row">LON</td>
+                            <td scope="row">London, GBR</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">MAD</td>
+                            <td scope="row">Madrid, ESP</td>
+                            <td scope="row">MEX</td>
+                            <td scope="row">Mexico City, MEX</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">PAR</td>
+                            <td scope="row">Paris, FRA</td>
+                            <td scope="row">SYD</td>
+                            <td scope="row">Sydney, AUS</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">TYO</td>
+                            <td scope="row">Tokyo, JPN</td>
+                            <td scope="row">YTO</td>
+                            <td scope="row">Toronto, CAN</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="iata">
+                    <p>Can't find your airport?</p>&nbsp;&nbsp;
+                    <a href="https://www.iata.org/en/publications/directories/code-search/" target="_blank">IATA Code Search</a>
+                </div>
+            </div>
+        </div>
+        <div class="sub-home">
+            <h1 class="h-text">.&nbsp;&nbsp;.&nbsp;&nbsp;.</h1>
+        </div>
+</div>
+
+{% endblock %}
