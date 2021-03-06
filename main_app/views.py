@@ -1,5 +1,7 @@
 import os
 import json
+import uuid
+import boto3
 from dotenv import find_dotenv, load_dotenv
 from amadeus import Client, ResponseError, Location
 from django.contrib import messages
@@ -7,9 +9,12 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Trip
+from .models import Trip, Photo
 
 load_dotenv(find_dotenv())
+
+S3_BASE_URL = 'https://s3-us-east-2.amazonaws.com/'
+BUCKET = 'destination-app'
 
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
@@ -35,7 +40,20 @@ def signup(request):
 
 
 
+def add_photo(request, trip_id):
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
 
+        try:
+            s3.upload_fileobj(photo_file, BUCKET, key)
+            url = f"{S3_BASE_URL}{BUCKET}/{key}"
+            photo = Photo(url=url, trip_id=trip_id)
+            photo.save()
+        except:
+            print('An error has occured uploading file')
+    return redirect('detail', trip_id=trip_id)
 
 amadeus = Client(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, log_level='debug')
 
