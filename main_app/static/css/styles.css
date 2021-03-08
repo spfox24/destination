@@ -42,7 +42,7 @@
 
 .dn-nav-links {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(6, auto);
     grid-gap: 60px;
     list-style: none;
     text-align: center;
@@ -328,6 +328,37 @@ th {
     margin-bottom: 40px;
 }
 
+.friend-detail-body {
+    margin-top:40px;
+}
+
+.card-link {
+    padding: 20px;
+    font-family: var(--primary-font);
+    background-color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.card-link-item {
+    color: #ffffff;
+    margin-right: 10px;
+    text-decoration: none !important;
+}
+
+.card-link-item:hover {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: 0.2s ease-out;
+}
+
+.delete-form-heading {
+    font-family: var(--primary-font);
+    font-size: 30px;
+    color: var(--primary-color);
+    padding: 20px;
+    margin-top: 100px;
+}
+
 .btn-container {
     display: flex;
     justify-content: flex-end;
@@ -341,6 +372,17 @@ th {
 }
 
 .btn-primary:hover {
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.88;
+}
+
+.btn-secondary {
+    background-color: var(--dn-red) !important;
+    border: none !important;
+    font-family: var(--primary-font);
+}
+
+.btn-secondary:hover {
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
     opacity: 0.88;
 }
