@@ -5,7 +5,11 @@
 <div>
     <div class="trip-form-body">
         {% if object %}
+<<<<<<< HEAD
             <h1 class="trip-form-heading">Edit <span style="color: var(--dn-red)">{{ object.destination }}</span> Trip</h1>
+=======
+            <h1 class="trip-form-heading">Edit <span>{{ object.name }}</span></h1>
+>>>>>>> b899c910db1dccdc3530e609fa3e751b1680e069
             {% else %}
             <h1 class="trip-form-heading">Plan Your Trip</h1>
         {% endif %}
@@ -14,7 +18,11 @@
             {% csrf_token %}
             {{ form|crispy }}
             <div class="btn-container">
+<<<<<<< HEAD
                 <button type="submit" class="dn-btn">Add</button>
+=======
+                <button type="submit" class="dn-btn">Create</button>
+>>>>>>> b899c910db1dccdc3530e609fa3e751b1680e069
             </div>
         </form>
     </div>
