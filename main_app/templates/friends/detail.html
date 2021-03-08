@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>Friend Detail</h1>
-
-<div class="card">
-    <div class="card-content">
-        <span class="card-title">{{ friend.name }}</span>
-        <p>Relationship: {{ friend.relationship }}</p>
+<div class="friend-detail-body">
+    <h1 class="trip-list-heading">Friend Detail</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <span class="card-title">{{ friend.name }}</span>
+            <p>Relationship: {{ friend.relationship }}</p>
+        </div>
+        <div class="card-link">
+            <a href="{% url 'friends_update' friend.id %}" class="card-link-item">Edit</a>
+            <a href="{% url 'friends_delete' friend.id %}" class="card-link-item">Delete</a>
+        </div>
     </div>
-    <div class="card-action">
-        <a href="{% url 'friends_update' friend.id %}">Edit</a>
-        <a href="{% url 'friends_delete' friend.id %}">Delete</a>
+    <div class="sub-home">
+        <h1 class="h-text">.&nbsp;&nbsp;.&nbsp;&nbsp;.</h1>
     </div>
 </div>
 

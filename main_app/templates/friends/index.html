@@ -1,19 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<h1>Friends List</h1>
-
-{% for friend in friends %}
-<a href="{% url 'friends_detail' friend.id %}">
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ friend.name }}</span>
-            <p>Relationship: {{ friend.relationship }}</p>
+<div class="trip-list-body">
+    {% if friends.count %}
+    <h1 class="trip-list-heading">Friends List</h1>
+    
+    {% for friend in friends %}
+    <div class="card" style="width: 25vw">
+        <a href="{% url 'friends_detail' friend.id %}" id="trip-list-links">
+            <div class="card-body">
+                <span class="card-title" id="ct-trip">{{ friend.name }}</span>
+                <p>Relationship: {{ friend.relationship }}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="card" style="height: 500px">
+        <img src="../static/img/travel14.jpg" alt="Card image" class="card-img">
+        <div class="card-img-overlay" style="
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+        ">
+            <h5 class="card-title" 
+            style="color: #ffffff; 
+                font-size: 40px; 
+                background-color: rgba(237, 106, 90, 0.85);
+                padding: 20px;
+                border-radius: 10px;
+                ">No Friends Added
+                <img src="../../static/img/DestiNation4.png" alt="logo" class="trips-logo" />        
+        </h5>
         </div>
     </div>
-</a>
+    {% endif %}
+    <div class="sub-home">
+        <h1 class="h-text">.&nbsp;&nbsp;.&nbsp;&nbsp;.</h1>
+    </div>
+</div>
 
-{% endfor %}
+
 
 {% endblock %}
