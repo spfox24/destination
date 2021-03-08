@@ -7,6 +7,10 @@
 
         {% csrf_token %}
         <input type="submit" value="Yes - Delete!" class="btn">
+<<<<<<< HEAD
+        <a href="{% url 'friends_detail' friend.id %}">Cancel</a>  
+=======
         <a href="{% url 'detail' trip.id %}">Cancel</a>  
+>>>>>>> b899c910db1dccdc3530e609fa3e751b1680e069
     </form>
 {% endblock %}
