@@ -85,7 +85,6 @@ def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
     return render(request, 'trips/detail.html', { 'trip': trip })
 
-<<<<<<< HEAD
 def friends_index(request):
     friends = Friend.objects.filter(user=request.user)
     return render(request, 'friends/index.html', { 'friends': friends })
@@ -94,8 +93,6 @@ def friends_detail(request, friend_id):
     friend = Friend.objects.get(id=friend_id)
     return render(request, 'friends/detail.html', { 'friend': friend })
 
-=======
->>>>>>> b899c910db1dccdc3530e609fa3e751b1680e069
 class TripCreate(CreateView):
     model = Trip
     fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
@@ -115,7 +112,6 @@ class TripUpdate(UpdateView):
 
 
 class FriendCreate(CreateView):
-<<<<<<< HEAD
     model = Friend
     fields = ['name', 'relationship', 'birthdate']
 
@@ -130,12 +126,3 @@ class FriendUpdate(UpdateView):
 class FriendDelete(DeleteView):
     model = Friend
     success_url = '/friends/'
-=======
-  model = Friend
-  fields = '__all__'
-def form_valid(self, form):
-    form.instance.user = self.request
-    return super().form_valid(form)
-
-
->>>>>>> b899c910db1dccdc3530e609fa3e751b1680e069
