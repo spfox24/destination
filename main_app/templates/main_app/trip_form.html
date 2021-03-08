@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div>
+    <div class="trip-form-body">
+        {% if object %}
+            <h1 class="trip-form-heading">Edit <span style="color: var(--dn-red)">{{ object.destination }}</span> Trip</h1>
+            {% else %}
+            <h1 class="trip-form-heading">Plan Your Trip</h1>
+        {% endif %}
+    
+        <form method="POST" class="trip-form" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="btn-container">
+                <button type="submit" class="dn-btn">Add</button>
+            </div>
+        </form>
+    </div>
+    <div class="sub-home">
+        <h1 class="h-text">.&nbsp;&nbsp;.&nbsp;&nbsp;.</h1>
+    </div>
+</div>
+
+{% endblock %}

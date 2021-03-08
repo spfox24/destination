@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="trip-form-body">
+        {% if object %}
+            <h1>Edit <span>{{ object.name }}</span></h1>
+            {% else %}
+            <h1 class="trip-form-heading">Add a Friend!</h1>
+        {% endif %}
+    
+        <form method="POST" class="trip-form" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="btn-container">
+                <button type="submit" class="dn-btn">Add</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
