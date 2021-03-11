@@ -17,4 +17,25 @@
         <input type="submit" class="dn-btn" value="Upload Photo" style="width: 120px; margin: 20px">
     </form>
 </div>
+
+<div>
+    <form action="{% url 'add_itinerary' trip.id %}" method="POST">
+        {% csrf_token %}
+        {{ itinerary_form.as_table }}
+        <input class="btn btn-primary" type="submit" value="Add Itinerary">
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr><th scope="col">Date</th><th scope="col">Activity</th></tr>
+        </thead>
+        <tbody>
+            {% for itinerary in trip.itinerary_set.all %}
+            <tr>
+                <td>{{itinerary.date}}</td>
+                <td>{{itinerary.activity}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

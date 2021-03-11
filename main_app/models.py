@@ -43,10 +43,13 @@ class Itinerary(models.Model):
 	date = models.DateField('activity date')
 	activity = models.CharField(max_length=100)
 	
+	trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+
 	def __str__(self):
-		return self.activity
+		return f"{self.activity} on {self.date}"
 
-
+class Meta:
+	ordering = ['-date'] 
 
 class Photo(models.Model):
 	url = models.CharField(max_length=250)
@@ -55,5 +58,3 @@ class Photo(models.Model):
 	def __str__(self):
 		return f"Photo for trip_id: {self.trip_id} @{self.url}"
 
-class Meta:
-	ordering = ['-date'] 
