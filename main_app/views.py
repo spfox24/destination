@@ -11,6 +11,7 @@ from .models import Trip, Friend
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from .models import Trip, Photo
+from .forms import ItineraryForm
 
 load_dotenv(find_dotenv())
 
@@ -83,7 +84,18 @@ def trips_index(request):
 
 def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
-    return render(request, 'trips/detail.html', { 'trip': trip })
+    # instantiate ItineraryForm
+    itinerary_form = ItineraryForm()
+    return render(request, 'trips/detail.html', {'trip': trip, 'itinerary_form': itinerary_form})
+    
+def add_itinerary(request, trip_id):
+    form = ItineraryForm(request.POST)
+    if form.is_valid():
+        new_itinerary = form.save(commit=False)
+        new_itinerary.trip_id = trip_id
+        new_itinerary.save()
+    return redirect('detail', trip_id=trip_id)
+
 
 def friends_index(request):
     friends = Friend.objects.filter(user=request.user)
