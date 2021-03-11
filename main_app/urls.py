@@ -15,5 +15,6 @@ urlpatterns = [
     path('friends/<int:pk>/delete/', views.FriendDelete.as_view(), name='friends_delete'),
     path('flight_search/', views.flight_search, name='flight_search'),
     path('trips/<int:trip_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('trips/<int:trip_id>/add_itinerary/', views.add_itinerary, name='add_itinerary'),
     path('accounts/signup/', views.signup, name='signup'),
 ]
