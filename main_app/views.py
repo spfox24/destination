@@ -88,6 +88,7 @@ def trips_detail(request, trip_id):
     itinerary_form = ItineraryForm()
     return render(request, 'trips/detail.html', {'trip': trip, 'itinerary_form': itinerary_form})
     
+    
 def add_itinerary(request, trip_id):
     form = ItineraryForm(request.POST)
     if form.is_valid():
