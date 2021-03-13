@@ -256,6 +256,7 @@
 
 .trip-info {
     color: var(--primary-color);
+    max-width: 400px;
 }
 
 .itinerary {
@@ -298,6 +299,7 @@
     grid-template-areas: "card" "card" "card";
     grid-gap: 20px;
 }
+
 
 #photo-card {
     display: flex;
