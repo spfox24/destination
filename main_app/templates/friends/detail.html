@@ -6,8 +6,9 @@
     
     <div class="card">
         <div class="card-body">
-            <span class="card-title">{{ friend.name }}</span>
-            <p>Relationship: {{ friend.relationship }}</p>
+            <span class="card-title" style="color: var(--secondary-color)">{{ friend.name }}</span>
+            <p style="color: var(--primary-color)">Relationship: {{ friend.relationship }}</p>
+            <p style="color: var(--primary-color)">Birthday: {{ friend.birthdate }}</p>
         </div>
         <div class="card-link">
             <a href="{% url 'friends_update' friend.id %}" class="card-link-item">Edit</a>

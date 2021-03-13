@@ -254,6 +254,10 @@
     color: var(--secondary-color);
 }
 
+.trip-info {
+    color: var(--primary-color);
+}
+
 .itinerary {
     display: flex;
     justify-content: center;
