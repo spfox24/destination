@@ -190,7 +190,7 @@
     font-family: var(--primary-font);
     font-size: 50px;
     color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
     margin: 40px;
 }
 
@@ -212,7 +212,7 @@
 .trip-list-heading {
     font-family: var(--primary-font);
     color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 
 #ct-trip {
@@ -237,6 +237,121 @@
 .trips-logo {
     height: 200px;
     width: auto;
+}
+
+.tdetail-t {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--primary-font);
+    margin-top: 100px;
+}
+
+.tdetail-heading {
+    font-weight: 600;
+    font-size: 60px;
+    color: var(--secondary-color);
+}
+
+.itinerary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.itinerary-heading {
+    font-size: 30px;
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.itinerary-form {
+    color: var(--primary-color);
+}
+
+#activity-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 400px;
+    background: url(../img/travel5.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.tdetail-m {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: auto;
+    grid-template-areas: "card" "card" "card";
+    grid-gap: 20px;
+}
+
+#photo-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 400px;
+    background: url(../img/travel5.jpg);
+    background-position: top;
+    background-size: cover;
+}
+
+#photo-deck {
+    max-width: 360px;
+    height: auto;
+}
+
+#photo-title {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.tdetail-b {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-template-columns: 350px 350px;
+    grid-template-rows: auto;
+    grid-template-areas: "friend-container" "friends-available";
+    margin-top: 40px;
+}
+
+.friend-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--primary-font);
+}
+
+.friends-available {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: var(--primary-font);
+}
+
+.friends-heading {
+    color: var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+#friend-card {
+    margin-bottom: 10px;
 }
 
 .flight-inspiration {

@@ -5,12 +5,13 @@ import boto3
 from dotenv import find_dotenv, load_dotenv
 from amadeus import Client, ResponseError, Location
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Trip, Friend
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from .models import Trip, Photo
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Trip, Photo, Itinerary, Friend
 from .forms import ItineraryForm
 
 load_dotenv(find_dotenv())
@@ -20,8 +21,6 @@ BUCKET = 'destination-app'
 
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
-
-
 
 def signup(request):
     error_message = ''
@@ -40,8 +39,7 @@ def signup(request):
     context = { 'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
 
-
-
+@login_required
 def add_photo(request, trip_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
@@ -59,6 +57,7 @@ def add_photo(request, trip_id):
 
 amadeus = Client(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, log_level='debug')
 
+@login_required
 def flight_search(request):
     if request.method == 'POST':
         kwargs = {'originCityCode': request.POST.get('Origin'), 
@@ -78,16 +77,23 @@ def flight_search(request):
 def home(request):
     return render(request, 'home.html')
 
+@login_required
 def trips_index(request):
     trips = Trip.objects.filter(user=request.user)
     return render(request, 'trips/index.html', { 'trips': trips })
 
+@login_required
 def trips_detail(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
-    # instantiate ItineraryForm
+    friends_trip_doesnt_have = Friend.objects.exclude(id__in = trip.friends.all().values_list('id'))
     itinerary_form = ItineraryForm()
-    return render(request, 'trips/detail.html', {'trip': trip, 'itinerary_form': itinerary_form})
-    
+    return render(request, 'trips/detail.html', {
+        'trip': trip, 
+        'itinerary_form': itinerary_form,
+        'friends': friends_trip_doesnt_have
+        })
+
+@login_required
 def add_itinerary(request, trip_id):
     form = ItineraryForm(request.POST)
     if form.is_valid():
@@ -96,16 +102,34 @@ def add_itinerary(request, trip_id):
         new_itinerary.save()
     return redirect('detail', trip_id=trip_id)
 
+@login_required
+def remove_itinerary(request, pk):
+    itinerary = get_object_or_404(Itinerary, pk=pk)
+    itinerary.delete()
+    trips = Trip.objects.filter(user=request.user)
+    return redirect('/trips/', { 'trips': trips })
 
+@login_required
 def friends_index(request):
     friends = Friend.objects.filter(user=request.user)
     return render(request, 'friends/index.html', { 'friends': friends })
 
+@login_required
 def friends_detail(request, friend_id):
     friend = Friend.objects.get(id=friend_id)
     return render(request, 'friends/detail.html', { 'friend': friend })
 
-class TripCreate(CreateView):
+@login_required
+def assoc_friend(request, trip_id, friend_id):
+    Trip.objects.get(id=trip_id).friends.add(friend_id)
+    return redirect('detail', trip_id=trip_id)
+
+@login_required
+def remove_friend(request, trip_id, friend_id):
+    Trip.objects.get(id=trip_id).friends.remove(friend_id)
+    return redirect('detail', trip_id=trip_id)
+
+class TripCreate(LoginRequiredMixin, CreateView):
     model = Trip
     fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
 
@@ -113,17 +137,17 @@ class TripCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class TripDelete(DeleteView):
+class TripDelete(LoginRequiredMixin, DeleteView):
     model = Trip
     success_url = '/trips/'
 
 
-class TripUpdate(UpdateView):
+class TripUpdate(LoginRequiredMixin, UpdateView):
     model = Trip
     fields = ['destination', 'depart', 'arrive', 'hotel', 'budget', 'description']
 
 
-class FriendCreate(CreateView):
+class FriendCreate(LoginRequiredMixin, CreateView):
     model = Friend
     fields = ['name', 'relationship', 'birthdate']
 
@@ -131,10 +155,10 @@ class FriendCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class FriendUpdate(UpdateView):
+class FriendUpdate(LoginRequiredMixin, UpdateView):
     model = Friend
     fields = ['name', 'relationship', 'birthdate']
 
-class FriendDelete(DeleteView):
+class FriendDelete(LoginRequiredMixin, DeleteView):
     model = Friend
     success_url = '/friends/'

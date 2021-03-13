@@ -13,8 +13,11 @@ urlpatterns = [
     path('friends/<int:friend_id>/', views.friends_detail, name='friends_detail'),
     path('friends/<int:pk>/update/', views.FriendUpdate.as_view(), name='friends_update'),
     path('friends/<int:pk>/delete/', views.FriendDelete.as_view(), name='friends_delete'),
+    path('trips/<int:trip_id>/assoc_friend/<int:friend_id>/', views.assoc_friend, name='assoc_friend'),
+    path('trips/<int:trip_id>/remove_friend/<int:friend_id>/', views.remove_friend, name='remove_friend'),
     path('flight_search/', views.flight_search, name='flight_search'),
     path('trips/<int:trip_id>/add_photo/', views.add_photo, name='add_photo'),
     path('trips/<int:trip_id>/add_itinerary/', views.add_itinerary, name='add_itinerary'),
+    path('trips/<int:pk>/remove_itinerary', views.remove_itinerary, name='remove_itinerary'),
     path('accounts/signup/', views.signup, name='signup'),
 ]

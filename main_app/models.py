@@ -24,7 +24,7 @@ class Friend(models.Model):
 class Trip(models.Model):
 	destination = models.CharField(max_length=100)
 	depart = models.DateField('departure date')
-	arrive = models.DateField('arrival date')
+	arrive = models.DateField('return date')
 	hotel = models.CharField(max_length=100)
 	budget = models.IntegerField()
 	description = models.TextField(max_length=250)
@@ -40,7 +40,7 @@ class Trip(models.Model):
 		return reverse('trips_index')
 
 class Itinerary(models.Model):
-	date = models.DateField('activity date')
+	date = models.DateField('Activity Date')
 	activity = models.CharField(max_length=100)
 	
 	trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
@@ -48,8 +48,8 @@ class Itinerary(models.Model):
 	def __str__(self):
 		return f"{self.activity} on {self.date}"
 
-class Meta:
-	ordering = ['-date'] 
+	def get_absolute_url(self):
+		return reverse('trips_index')
 
 class Photo(models.Model):
 	url = models.CharField(max_length=250)
