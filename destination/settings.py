@@ -122,6 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+FONTAWESOME_5_CSS = 'fontawesome_5/css/django-fontawesome.css'
+
 LOGIN_REDIRECT_URL = '/trips/'
 
 LOGOUT_REDIRECT_URL = '/'
