@@ -122,7 +122,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-FONTAWESOME_5_CSS = 'fontawesome_5/css/django-fontawesome.css'
+FONTAWESOME_5_CSS = URL or None
+    default: 'fontawesome_5/css/django-fontawesome.css'
+
+FONTAWESOME_5_CSS_ADMIN = URL or path
+    default: None
+
+FONTAWESOME_5_ICON_CLASS = 'default' or 'semantic_ui'
+    default: 'default'
+
+FONTAWESOME_5_PREFIX = 'custom_prefix'
+    default: 'fa'
 
 LOGIN_REDIRECT_URL = '/trips/'
 
