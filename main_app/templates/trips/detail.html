@@ -73,9 +73,9 @@
     </section>
     <section class="tdetail-m">
         {% for photo in trip.photo_set.all %}
-        <div>
-            <div class="card-deck">
-                <div class="card mb-4">
+        <div class="pd-container">
+            <div class="card-deck" style="display: flex; justify-content: center; align-items: center;" id="td-deck">
+                <div class="card mb-4" id="td-photo">
                     <img src="{{photo.url}}" alt="Card image cap" class="card-img-top img-fluid" id="photo-deck">
                     <div class="card-body">
                         <h5 class="card-title" id="photo-title">{{ trip.destination }} Trip</h5>
@@ -103,7 +103,7 @@
             <h3 class="friends-heading">Who's Coming?</h3>
         {% if trip.friends.count %}
             {% for friend in trip.friends.all %}
-            <div class="card" style="width: 300px; padding: 20px">
+            <div class="card" style="width: 250px; padding: 20px">
                 <div class="card-content" id="friend-card">
                     <span class="card-title" style="color: var(--secondary-color)">{{ friend.name }}</span>
                     <p class="card-text" style="color: var(--primary-color)">{{ friend.relationship }}</p>
@@ -124,7 +124,7 @@
             <h3 class="friends-heading">Available Friends</h3>
         {% if friends.count %}
             {% for friend in friends.all %}
-            <div class="card" style="width: 300px; padding: 20px">
+            <div class="card" style="width: 250px; padding: 20px">
                 <div class="card-content" id="friend-card">
                     <span class="card-title"style="color: var(--dn-red)">{{ friend.name }}</span>
                     <p class="card-text" style="color: var(--primary-color)">{{ friend.relationship }}</p>

@@ -322,6 +322,7 @@
     font-size: 35px;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .tdetail-b {
@@ -388,6 +389,7 @@
     color: var(--secondary-color);
     border-bottom: 1px solid var(--secondary-color);
     padding: 0 0 8px 0;
+    text-align: center;
 }
 
 .flight-body {
@@ -645,4 +647,286 @@ th {
     color: #ffffff;
     font-size: 12px;
     margin: 16px 0 16px 0;
+}
+
+@media screen and (max-width: 975px) {
+    
+    .tdetail-m {
+        grid-template-columns: 275px 275px 275px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    
+    .h-header {
+        font-size: 30px;
+    }
+
+    .dn-nav-links {
+        grid-gap: 50px;
+        width: 60vw;
+    }
+
+    .home-b > .card-deck > .card {
+        width: 8rem;
+    }
+
+    .home-b > .card-deck > .card > .card-body > .card-title {
+        font-size: 24px;
+    }
+
+    .home-b > .card-deck > .card > .card-body > .card-text {
+        font-size: 13px;
+    }
+
+    .tdetail-m {
+        grid-template-columns: 200px 200px 200px;
+        grid-gap: 20px;
+    }
+
+    #td-photo {
+        max-width: 200px;
+    }
+
+    #photo-title {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 825px) {
+    
+    .h-header {
+        font-size: 24px;
+    }
+
+    .h-text {
+        font-size: 20px;
+    }
+
+    .home-b > .card-deck > .card {
+        width: 6rem;
+    }
+
+    .home-b > .card-deck > .card > .card-body > .card-title {
+        font-size: 20px;
+    }  
+}
+
+
+@media screen and (max-width: 750px) {
+    
+    .dn-nav-links {
+        grid-gap: 40px;
+        width: 60vw;
+    }
+
+    .dn-logo-container {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dn-logo-nav {
+        width: 80px;
+        height: 80px;
+    }
+
+    .dn-nav-item-link, .dn-nav-item-link-logout {
+        font-size: 12px;
+    }
+    
+    .footer-link-items {
+        margin: 14px;
+        width: 160px;
+    }
+    
+    .footer-link-items h2{
+        margin-bottom: 14px;
+        font-size: 20px;
+    }
+    
+    .footer-link-items a {
+        font-size: 14px;
+        margin-bottom: 0.20rem;
+    }
+    
+    .social-media-wrap {
+        margin: 34px auto 0 auto;
+    }
+    
+    .flight-insp-header {
+        font-size: 40px;
+    }
+    
+    .flight-insp-text {
+        font-size: 14px;
+    }
+    
+    .flight-heading {
+        font-size: 24px;
+    }
+    
+    .flight-body {
+        display: grid;
+        grid-template-columns: 300px 300px;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "flight-form-container flight-results"
+        "flight-key flight-key";
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    .flight-table-container {
+        width: 250px;
+    }
+    
+    .flight-key-container {
+        width: 400px;
+    }
+    
+    .iata {
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    
+    .home-b > .card-deck > .card > .card-body > .card-title {
+        font-size: 16px;
+    }  
+
+    .home-b > .card-deck > .card > .card-body > .card-text {
+        font-size: 10px;
+    }
+
+    #btn-b {
+        font-size: 10px;
+    }
+
+    .itinerary {
+        max-width: 575px;
+    }
+    
+    .itinerary-heading {
+        font-size: 24px;
+    }
+
+    .tdetail-m {
+        grid-template-columns: 150px 150px 150px;
+    }
+
+    #td-photo {
+        max-width: 200px;
+    }
+
+    #photo-title {
+        font-size: 20px;
+    }
+
+    .tdetail-b {
+        grid-template-columns: 300px 300px;
+    }
+
+    .friends-heading {
+        font-size: 24px;
+    }
+
+    .tdetail-b > .friend-container > h5 {
+        font-size: 14px;
+    }
+
+    .tdetail-b > .friends-available > h5 {
+        font-size: 14px;
+    }
+
+    .tdetail-b > .friend-container > .card {
+        width: 200px;
+    }
+
+    .tdetail-b > .friends-available > .card {
+        width: 200px;
+    }
+
+    .footer-link-items {
+        width: 120px;
+    }
+    
+    .footer-link-items h2{
+        margin-bottom: 14px;
+        font-size: 16px;
+    }
+
+    .footer-link-items a{
+        font-size: 12px;
+    }
+    
+    .social-media-wrap {
+        margin: 28px auto 0 auto;
+    }
+}
+
+@media screen and (max-width: 625px) {
+
+    .dn-nav-links {
+        grid-gap: 20px;
+    }
+
+    .dn-logo-container {
+        width: 80px;
+    }
+
+    .h-header {
+        font-size: 20px;
+    }
+
+    .h-text {
+        font-size: 16px;
+    }
+
+    .dn-nav-item-link, .dn-nav-item-link-logout {
+        font-size: 10px;
+    }
+
+    .home-b > .card-deck > .card > .card-body > .card-title {
+        font-size: 16px;
+    }  
+
+    .home-b > .card-deck > .card > .card-body > .card-text {
+        font-size: 10px;
+    }
+
+    .social-logo {
+        margin-left: 10px;
+    }
+
+    .flight-insp-header {
+        font-size: 34px;
+    }
+    
+    .flight-body {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "flight-form-container flight-results"
+        "flight-key flight-key";
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    .flight-table-container {
+        width: 200px;
+    }
+    
+    .flight-key-container {
+        width: 400px;
+    }
+
 }
