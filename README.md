@@ -3,15 +3,15 @@ Do you have a lot of travel plans that have you just can't seem to keep organize
 
 
 # Technologies Used
-Python
-Django
-Bootstrap 5
-AWS S3
-Amadeus travel API
-Heroku
-HTML5
-CSS3
-PostgreSQL
+- Python
+- Django
+- Bootstrap 5
+- AWS S3
+- Amadeus travel API
+- Heroku
+- HTML5
+- CSS3
+- PostgreSQL
 
 # Wireframes
 ![](public/images/wireframes/home-page-wireframe.png)
